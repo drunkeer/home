@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="swiper/swiper.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-around;
+            height: 200px;
+        }
+
+        .logo {
+            width: 50%;
+            position: relative;
+        }
+
+        .menu {
+            width: 50%;
+        }
+
+        .logo img {
+            width: 100px;
+            position: absolute;
+            left: 50%;
+            top: 5px;
+        }
+
+        .menu a {
+            display: inline-block;
+            padding: 25px 10px;
+            text-decoration: none;
+        }
+
+        .menu a:link {
+            color: aliceblue;
+        }
+
+        .menu a:hover {
+            color: rgb(9, 175, 150);
+        }
+
+        .myname {
+            position: relative;
+            /* left:20%; */
+            padding-left: 300px;
+        }
+
+        .mycv a {
+            display: inline-block;
+            padding: 20px;
+            background-color: #17a847;
+            text-decoration: none;
+        }
+
+        .mycv a:link {
+            color: #f7fafa;
+        }
+
+        .mycv a:hover {
+            background-color: #098b34;
+        }
+
+        .toppanel {
+            height: 950px;
+            background-image: url(images/hero.jpg);
+        }
+
+        .socialm {
+            display: flex;
+            padding-left: 300px;
+            padding-top: 350px;
+        }
+
+        .socialm img {
+            width: 40px;
+        }
+
+        .s-l {
+            width: 25%;
+            color: #f7fafa;
+        }
+
+        .s-m {
+            width: 50%;
+        }
+
+        .s-r {
+            width: 25%;
+        }
+
+        .bio {
+            margin: auto;
+        }
+
+        .bio h6,
+        .ser h6,
+        .resume h6 {
+            color: #e2e4e4;
+            font-weight: 400;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .bio h2,
+        .ser h2,
+        .resume h2 {
+            color: #e2e4e4;
+            text-align: center;
+            font-size: 40px;
+            margin: 20px;
+        }
+
+        .bio h3,
+        .ser h3,
+        .resume h3 {
+            color: #098b34;
+            text-align: center;
+            font-size: 40px;
+            font-weight: 300;
+            margin: 20px;
+        }
+
+        .bio h4 {
+            color: #098b34;
+            font-weight: 300;
+            font-size: 20px;
+            margin: 20px;
+        }
+
+        .bio h5 {
+            color: #e2e4e4;
+            font-size: 25px;
+            margin: 20px;
+        }
+
+        .bio p {
+            color: #c5c7c7;
+            font-size: 14px;
+            width: 500px;
+            margin: 20px;
+        }
+
+        .biobox {
+            display: flex;
+        }
+
+        .biobox-l {
+            width: 50%;
+            /* background-image: url(images/single.png); */
+            position: relative;
+        }
+
+        .biobox-l img {
+            width: 420px;
+            position: absolute;
+            right: 20px;
+        }
+
+        .biobox-r {
+            width: 50%;
+        }
+
+        .contactbox {
+            width: 500px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .cbc {
+            width: 200px;
+            height: 80px;
+            background-color: #383838;
+            /* opacity: 0.4; */
+            margin: 20px;
+        }
+
+        .cbc:hover {
+            border-left: solid 4px #51e783;
+        }
+
+        .cbc h6 {
+            color: #f7fafa;
+            text-align: left;
+            font-size: 15px;
+            margin: 10px;
+        }
+
+        .cbc p {
+            font-size: 14px;
+            margin: 10px;
+        }
+
+        .serbox {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 900px;
+            margin: auto;
+        }
+
+        .sbc {
+            width: 250px;
+            height: 220px;
+            background-color: #1f1e1e;
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sbc img {
+            width: 40px;
+            margin: 20px;
+        }
+
+        .sbc h5 {
+            font-size: 16px;
+            color: #e2e4e4;
+            padding-left: 20px;
+        }
+
+        .sbc p {
+            color: #c5c7c7;
+            font-size: 14px;
+            padding-left: 20px;
+        }
+
+        .sbc a {
+            display: block;
+            margin: 20px;
+            text-decoration: none;
+            position: absolute;
+            left: -100px
+        }
+
+        .sbc a:link {
+            color: #e2e4e4;
+        }
+
+        .sbc:hover {
+            background-color: #048a31;
+        }
+
+        .sbc:hover a {
+            /* display: block; */
+            transition: transform 2s;
+            transform: translateX(100px);
+        }
+
+        .resume {
+            margin: auto;
+            padding: 50px;
+            height: 1200px;
+        }
+
+        .tabs {
+            position: relative;
+            width: 100%;
+            /* height: 314px; */
+            display: flex;
+            justify-content: center;
+            /* justify-content: space-around; */
+        }
+
+        .tab-pane {
+            display: inline-block;
+        }
+
+        .tabs input {
+            position: absolute;
+            /* clip: rect(0, 0, 0, 0); */
+            opacity: 0;
+        }
+
+        .tab-item {
+            display: block;
+            cursor: pointer;
+            padding: 20px;
+            margin: 5px;
+            color: #ffffff;
+            background-color: #615f5f;
+        }
+
+        .tabs input:checked+.tab-item {
+            background-color: #08f948;
+            color: rgb(255, 255, 255);
+        }
+
+        .tab-content {
+            z-index: 1;
+            position: absolute;
+            padding: 20px;
+            left: 0;
+            top: 80px;
+            bottom: 0;
+            right: 0;
+            height: 673px;
+            /* width: 900px; */
+            background-color: rgb(15, 15, 15);
+            color: #ffffff;
+
+            display: flex;
+            justify-content: space-around;
+            /* background: #fff; */
+        }
+
+        .tab-content .l {
+            margin-left: 200px;
+        }
+
+        .tab-content .r {
+            margin-right: 200px;
+        }
+
+
+        .tabs input:checked+.tab-item+.tab-content {
+            z-index: 2;
+        }
+
+        .edu {
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            height: 673px;
+            width: 1200px;
+
+        }
+
+        .edubox {
+            width: calc(100%/2);
+
+            /* padding:10px; */
+
+        }
+
+        .edubox .ebc {
+            margin: 10px;
+            height: 150px;
+            background-color: #2c2a2a;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            width: 100%;
+            height: 100%;
+            background: #0c0c0c;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+            min-height: 100%;
+            transition: 1s linear 2s;
+            transform: scale(1.1, 1.1);
+        }
+
+        .swiper-slide-active img,
+        .swiper-slide-duplicate-active img {
+            transition: 6s linear;
+            transform: scale(1, 1);
+        }
+
+        .works {
+            width: 1000px;
+            height: 500px;
+            margin: auto;
+        }
+
+        .works .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:500px;
+        }
+
+        .works .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="toppanel">
+        <div class="top">
+            <div class="logo">
+                <img src="images/logo.png" alt="">
+            </div>
+            <div class="menu">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Service</a>
+                <a href="#">Resum</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="myname">
+                <div class="hello">
+                    <span style="font-size: 90px; font-weight: 900; color: #f7fafa;">Hello</span>
+                    <span style="font-size: 100px; color: #43aeaf;">.</span>
+                </div>
+                <div class="nick">
+                    <span style="font-size: 40px; font-weight: 500;color: #43aeaf;">——</span><span
+                        style="font-size: 40px; color: #f7fafa; font-weight: 900;">I'am Emma Watson</span>
+                </div>
+                <div class="job" style="color: #f7fafa; font-size: 25px; margin: 20px 0;">
+                    巢湖学院资深学子
+                </div>
+                <div class="mycv">
+                    <a href="#">Download CV</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="socialm">
+            <div class="s-l">ENG &nbsp; &nbsp; AUS</div>
+            <div class="s-m"><img src="images/播放.png" alt=""></div>
+            <div class="s-r"><img src="images/推特.png" alt=""><img src="images/facebook.png" alt=""><img
+                    src="images/微博.png" alt=""><img src="images/微信.png" alt=""></div>
+        </div>
+    </div>
+    <div class="bio">
+        <h6>BIOGRAPHY</h6>
+        <h2>Who am I?</h2>
+        <h3>|</h3>
+        <div class="biobox">
+            <div class="biobox-l">
+                <img src="images/single.png" alt="">
+            </div>
+            <div class="biobox-r">
+                <h4>About Me</h4>
+                <h5>Emma Watson's Details</h5>
+                <p>
+                    Monotonectally orchestrate professionals supply chains whereas
+                    are metrics. Globally procrastinate backward-compatible application
+                    the action items. Collaboratively enhance extensibl collaboration
+                    and it's through interdependent opportunities.
+                </p>
+                <div class="contactbox">
+                    <div class="cbc" style="border-left: solid 4px rgb(180, 245, 84);">
+                        <h6>Name</h6>
+                        <p>Emma Watson</p>
+                    </div>
+                    <div class="cbc">
+                        <h6>Email</h6>
+                        <p>shaoxiao@chu.edu.cn</p>
+                    </div>
+                    <div class="cbc">
+                        <h6>Address</h6>
+                        <p>Chaohu, Anhui</p>
+                    </div>
+                    <div class="cbc">
+                        <h6>Phone No.</h6>
+                        <p>153----3219</p>
+                    </div>
+                </div>
+                <div class="download">
+                    <div class="mycv">
+                        <a href="#">Download CV</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="ser">
+        <h6>Services</h6>
+        <h2>What I Do?</h2>
+        <h3>|</h3>
+        <div class="serbox">
+            <div class="sbc">
+                <div class="tb">
+                    <img src="images/pen.png" alt="">
+                </div>
+                <h5>title</h5>
+                <p>描述性文字</p>
+                <a href="#">read more&nbsp;&nbsp;&nbsp; —</a>
+            </div>
+            <div class="sbc">
+                <div class="tb">
+                    <img src="images/mobile.png" alt="">
+                </div>
+                <h5>title</h5>
+                <p>描述性文字</p>
+                <a href="#">read more&nbsp;&nbsp;&nbsp; —</a>
+            </div>
+            <div class="sbc">
+                <div class="tb">
+                    <img src="images/video.png" alt="">
+                </div>
+                <h5>title</h5>
+                <p>描述性文字</p>
+                <a href="#">read more&nbsp;&nbsp;&nbsp; —</a>
+            </div>
+            <div class="sbc">
+                <div class="tb">
+                    <img src="images/lg.png" alt="">
+                </div>
+                <h5>title</h5>
+                <p>描述性文字</p>
+                <a href="#">read more &nbsp;&nbsp;&nbsp;—</a>
+            </div>
+            <div class="sbc">
+                <div class="tb">
+                    <img src="images/camera.png" alt="">
+                </div>
+                <h5>title</h5>
+                <p>描述性文字</p>
+                <a href="#">read more &nbsp;&nbsp;&nbsp;—</a>
+            </div>
+            <div class="sbc">
+                <div class="tb">
+                    <img src="images/computer.png" alt="">
+                </div>
+                <h5>title</h5>
+                <p>描述性文字</p>
+                <a href="#">read more &nbsp;&nbsp;&nbsp; —</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="resume">
+        <h6>Services</h6>
+        <h2>What I Do</h2>
+        <h3>|</h3>
+        <div class="tabs">
+            <div class="tab-pane">
+                <input type="radio" name="tab" id="tab01" checked />
+                <label class="tab-item" for="tab01">tab01</label>
+                <div class="tab-content">
+                    <img src="images/border.png" class="l" alt="">
+                    <div class="edu">
+                        <div class="edubox">
+                            <div class="ebc"><video height="100%" autoplay="autoplay"  controls="controls" poster="images/xxjxs-xi.png">
+                                <source src="images/v1.mp4">
+                            </video></div>
+                        </div>
+                        <div class="edubox">
+                            <div class="ebc">2</div>
+                        </div>
+                        <div class="edubox">
+                            <div class="ebc">3</div>
+                        </div>
+                        <div class="edubox">
+                            <div class="ebc">4</div>
+                        </div>
+                        <div class="edubox">
+                            <div class="ebc">5</div>
+                        </div>
+                        <div class="edubox">
+                            <div class="ebc">6</div>
+                        </div>
+                    </div>
+                    <img src="images/border2.png" class="r" alt="">
+                </div>
+            </div>
+            <div class="tab-pane">
+                <input type="radio" name="tab" id="tab02" />
+                <label class="tab-item" for="tab02">tab02</label>
+                <div class="tab-content">
+                    <div class="swiper-container mySwiper1">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">Slide 1</div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                            <div class="swiper-slide">Slide 4</div>
+                            <div class="swiper-slide">Slide 5</div>
+                            <div class="swiper-slide">Slide 6</div>
+                            <div class="swiper-slide">Slide 7</div>
+                            <div class="swiper-slide">Slide 8</div>
+                            <div class="swiper-slide">Slide 9</div>
+                            <div class="swiper-slide">Slide 10</div>
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane">
+                <input type="radio" name="tab" id="tab03" />
+                <label class="tab-item" for="tab03">tab03</label>
+                <div class="tab-content">
+                    <div class="swiper-container mySwiper2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/news1.jpg"></div>
+                            <div class="swiper-slide"><img src="images/news2.jpg"></div>
+                            <div class="swiper-slide"><video src="v2.mp4" width="100%" controls></video></div>
+                            <div class="swiper-slide"><img src="images/hero.jpg"></div>
+                            <div class="swiper-slide"><img src="images/bgred.jpg"></div>
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination swiper-pagination-white"></div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next swiper-button-white"></div>
+                        <div class="swiper-button-prev swiper-button-white"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="works">
+        <div class="swiper mySwiper3">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"></div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"> </script>
+    <script src="swiper/swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        // 第一个轮播初始化
+        var swiper1 = new Swiper('.mySwiper1', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            slidesPerGroup: 3,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+        // 第二个轮播初始化
+        var swiper2 = new Swiper('.mySwiper2', {
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            speed: 500,
+            spaceBetween: 30,
+            effect: 'fade',
+            loop: true,//必须
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+        // 第三个轮播初始化
+        var swiper3 = new Swiper(".mySwiper3", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+</body>
+
+</html>
